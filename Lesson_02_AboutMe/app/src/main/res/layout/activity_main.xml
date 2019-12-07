@@ -16,8 +16,9 @@
             android:id="@+id/name_text"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Stephan Do"
+            android:text="@string/name"
             android:textAlignment="center"
-            android:textSize="20sp" />
+            android:textColor="@android:color/black"
+            android:textSize="@dimen/text_size" />
     </LinearLayout>
 </androidx.constraintlayout.widget.ConstraintLayout>
