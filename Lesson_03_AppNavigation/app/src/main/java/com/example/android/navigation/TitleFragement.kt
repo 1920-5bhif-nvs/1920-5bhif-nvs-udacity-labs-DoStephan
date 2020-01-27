@@ -20,9 +20,10 @@ class TitleFragement : Fragment() {
                               savedInstanceState: Bundle?): View? {
         var binding: FragmentTitleBinding = DataBindingUtil.inflate(
                 inflater, R.layout.fragment_title, container, false)
-        binding.playButton.setOnClickListener (
-                Navigation.createNavigateOnClickListener(R.id.action_titleFragement_to_gameFragment)
-        )
+        binding.playButton.setOnClickListener {v: View ->
+            v.findNavController()
+                    .navigate(TitleFragementDirections.actionTitleFragementToGameFragment())
+        }
         setHasOptionsMenu(true)
         return binding.root
     }
