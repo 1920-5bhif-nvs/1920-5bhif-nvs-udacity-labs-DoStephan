@@ -18,6 +18,7 @@ package com.example.android.dessertpusher
 
 import android.content.ActivityNotFoundException
 import android.os.Bundle
+import android.os.PersistableBundle
 import android.util.Log
 import android.view.Menu
 import android.view.MenuItem
@@ -28,6 +29,8 @@ import androidx.databinding.DataBindingUtil
 import androidx.lifecycle.LifecycleObserver
 import com.example.android.dessertpusher.databinding.ActivityMainBinding
 import timber.log.Timber
+
+const val KEY_REVENUE = "key_revenue"
 
 class MainActivity : AppCompatActivity(), LifecycleObserver {
 
@@ -76,6 +79,10 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             onDessertClicked()
         }
         dessertTimer = DessertTimer(this.lifecycle)
+
+        if (savedInstanceState != null){
+            revenue = savedInstanceState.getInt(KEY_REVENUE)
+        }
 
         // Set the TextViews to the right values
         binding.revenue = revenue
@@ -150,6 +157,16 @@ class MainActivity : AppCompatActivity(), LifecycleObserver {
             R.id.shareMenuButton -> onShare()
         }
         return super.onOptionsItemSelected(item)
+    }
+
+    override fun onSaveInstanceState(outState: Bundle) {
+        super.onSaveInstanceState(outState)
+        outState.putInt(KEY_REVENUE, revenue)
+        Timber.i("onSaveInstanceState called")
+    }
+
+    override fun onRestoreInstanceState(savedInstanceState: Bundle?) {
+        super.onRestoreInstanceState(savedInstanceState)
     }
 
     override fun onStart() {
