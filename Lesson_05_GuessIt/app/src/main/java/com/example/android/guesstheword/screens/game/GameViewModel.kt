@@ -42,8 +42,6 @@ class GameViewModel : ViewModel() {
     private lateinit var wordList: MutableList<String>
 
     init {
-//        _evenGameFinish.value = false
-//        Log.i("GameViewModel", "GameViewModel created!")
         resetList()
         nextWord()
         _score.value = 0
@@ -60,12 +58,10 @@ class GameViewModel : ViewModel() {
             }
         }
         timer.start()
-//        DateUtils.formatElapsedTime(newTime)
     }
 
     override fun onCleared() {
         super.onCleared()
-//        Log.i("GameViewModel", "GameViewModel destroyed!")
         timer.cancel()
     }
 
@@ -75,29 +71,30 @@ class GameViewModel : ViewModel() {
     private fun resetList() {
         wordList = mutableListOf(
                 "queen",
-                "hospital"
-//                "basketball",
-//                "cat",
-//                "change",
-//                "snail",
-//                "soup",
-//                "calendar",
-//                "sad",
-//                "desk",
-//                "guitar",
-//                "home",
-//                "railway",
-//                "zebra",
-//                "jelly",
-//                "car",
-//                "crow",
-//                "trade",
-//                "bag",
-//                "roll",
-//                "bubble"
+                "hospital",
+                "basketball",
+                "cat",
+                "change",
+                "snail",
+                "soup",
+                "calendar",
+                "sad",
+                "desk",
+                "guitar",
+                "home",
+                "railway",
+                "zebra",
+                "jelly",
+                "car",
+                "crow",
+                "trade",
+                "bag",
+                "roll",
+                "bubble"
         )
         wordList.shuffle()
     }
+
     /**
      * Moves to the next word in the list
      */
