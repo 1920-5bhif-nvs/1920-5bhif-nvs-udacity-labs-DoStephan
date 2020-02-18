@@ -17,11 +17,17 @@ class GameViewModel : ViewModel() {
     val score: LiveData<Int>
         get() = _score
 
+    private val _evenGameFinish = MutableLiveData<Boolean>()
+    val evenGameFinish: LiveData<Boolean>
+        get() = _evenGameFinish
+
+
     // The list of words - the front of the list is the next word to guess
     private lateinit var wordList: MutableList<String>
 
     init {
-        Log.i("GameViewModel", "GameViewModel created!")
+        _evenGameFinish.value = false
+//        Log.i("GameViewModel", "GameViewModel created!")
         resetList()
         nextWord()
 
@@ -40,26 +46,26 @@ class GameViewModel : ViewModel() {
     private fun resetList() {
         wordList = mutableListOf(
                 "queen",
-                "hospital",
-                "basketball",
-                "cat",
-                "change",
-                "snail",
-                "soup",
-                "calendar",
-                "sad",
-                "desk",
-                "guitar",
-                "home",
-                "railway",
-                "zebra",
-                "jelly",
-                "car",
-                "crow",
-                "trade",
-                "bag",
-                "roll",
-                "bubble"
+                "hospital"
+//                "basketball",
+//                "cat",
+//                "change",
+//                "snail",
+//                "soup",
+//                "calendar",
+//                "sad",
+//                "desk",
+//                "guitar",
+//                "home",
+//                "railway",
+//                "zebra",
+//                "jelly",
+//                "car",
+//                "crow",
+//                "trade",
+//                "bag",
+//                "roll",
+//                "bubble"
         )
         wordList.shuffle()
     }
@@ -69,7 +75,7 @@ class GameViewModel : ViewModel() {
     private fun nextWord() {
         //Select and remove a word from the list
         if (wordList.isEmpty()) {
-//            gameFinished()
+            _evenGameFinish.value = true
         } else {
             _word.value = wordList.removeAt(0)
         }
@@ -83,5 +89,9 @@ class GameViewModel : ViewModel() {
     fun onCorrect() {
         _score.value = (score.value)?.plus(1)
         nextWord()
+    }
+
+    fun onGameFinishComplete() {
+        _evenGameFinish.value = false
     }
 }
