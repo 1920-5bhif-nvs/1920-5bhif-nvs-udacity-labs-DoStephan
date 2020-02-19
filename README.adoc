@@ -10,7 +10,7 @@ https://classroom.udacity.com/courses/ud9012
 * [x] Lesson 4
 * [x] Lesson 5
 * [x] Lesson 6
-* [ ] Lesson 7
+* [X] Lesson 7
 * [ ] Lesson 8
 * [ ] Lesson 9
 
