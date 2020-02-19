@@ -4,7 +4,6 @@ https://classroom.udacity.com/courses/ud9012
 
 == Lesson Status
 
-[options="interactive"]
 * [x] Lesson 1
 * [x] Lesson 2
 * [x] Lesson 3
