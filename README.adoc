@@ -2,7 +2,7 @@
 
 https://classroom.udacity.com/courses/ud9012
 
-== Lesson Status
+== Lesson Progress
 
 * [x] Lesson 1
 * [x] Lesson 2
